@@ -43,16 +43,24 @@
                 <span>添加内容</span>
               </a-button>
             </a-dropdown>
+            <a-button class="ml8" type="primary" danger :disabled="!selectedRowKeys.length" @click="handleBatchDelete">
+              <template #icon>
+                <DeleteOutlined />
+              </template>
+              <span>批量删除</span>
+            </a-button>
+            <!-- <a-button class="ml8" type="primary" :disabled="!selectedRowKeys.length" @click="handleBatchLearn">
+              <template #icon>
+                <SyncOutlined />
+              </template>
+              <span>重新学习</span>
+            </a-button> -->
           </div>
         </div>
         <div>
           <div class="tool-item">
-            <a-input
-              style="width: 282px"
-              v-model:value="queryParams.file_name"
-              placeholder="请输入文档名称搜索"
-              @change="onSearch"
-            >
+            <a-input style="width: 282px" v-model:value="queryParams.file_name" placeholder="请输入文档名称搜索"
+              @change="onSearch">
               <template #suffix>
                 <SearchOutlined @click="onSearch" style="color: rgba(0, 0, 0, 0.25)" />
               </template>
@@ -61,19 +69,18 @@
         </div>
       </div>
       <div class="list-content">
-        <a-table
-          :columns="columns"
-          :data-source="fileList"
-          :pagination="{
-            current: queryParams.page,
-            total: queryParams.total,
-            pageSize: queryParams.size,
-            showQuickJumper: true,
-            showSizeChanger: true,
-            pageSizeOptions: ['10', '20', '50', '100']
-          }"
-          @change="onTableChange"
-        >
+        <a-table :columns="columns" :data-source="fileList" rowKey="id" :row-selection="{
+      type: 'checkbox',
+      selectedRowKeys: selectedRowKeys,
+      onChange: onSelectChange
+    }" :pagination="{
+      current: queryParams.page,
+      total: queryParams.total,
+      pageSize: queryParams.size,
+      showQuickJumper: true,
+      showSizeChanger: true,
+      pageSizeOptions: ['10', '20', '50', '100']
+    }" @change="onTableChange">
           <template #bodyCell="{ column, record }">
             <template v-if="column.key === 'file_name'">
               <div class="doc-name-td">
@@ -87,37 +94,39 @@
               </div>
             </template>
             <template v-if="column.key === 'status'">
-              <span class="status-tag status-queuing" v-if="record.status == 0"
-                ><a-spin size="small" /> 转换中</span
-              >
-              <span class="status-tag status-learning" v-if="record.status == 1"
-                ><a-spin size="small" /> 学习中</span
-              >
-              <span class="status-tag status-complete" v-if="record.status == 2"
-                ><CheckCircleFilled /> 学习完成</span
-              >
+              <span class="status-tag status-queuing" v-if="record.status == 0"><a-spin size="small" /> 转换中</span>
+              <span class="status-tag status-learning" v-if="record.status == 1"><a-spin size="small" /> 学习中</span>
+              <span class="status-tag status-complete" v-if="record.status == 2">
+                <CheckCircleFilled /> 学习完成
+              </span>
 
               <a-tooltip placement="top" v-if="record.status == 3">
                 <template #title>
                   <span>{{ record.errmsg }}</span>
                 </template>
-                <span class="status-tag status-error"><CloseCircleFilled /> 学习失败</span>
+                <span class="status-tag status-error">
+                  <CloseCircleFilled /> 学习失败
+                </span>
               </a-tooltip>
               <template v-if="record.status == 4">
-                <span class="status-tag status-complete"><ClockCircleFilled /> 待学习</span>
+                <span class="status-tag status-complete">
+                  <ClockCircleFilled /> 待学习
+                </span>
                 <a class="ml8" @click="handlePreview(record)">学习</a>
               </template>
               <template v-if="record.status == 5">
-                <span class="status-tag status-complete"><ClockCircleFilled /> 待获取</span>
+                <span class="status-tag status-complete">
+                  <ClockCircleFilled /> 待获取
+                </span>
               </template>
-              <span class="status-tag status-learning" v-if="record.status == 6"
-                ><a-spin size="small" /> 获取中</span
-              >
+              <span class="status-tag status-learning" v-if="record.status == 6"><a-spin size="small" /> 获取中</span>
               <a-tooltip placement="top" v-if="record.status == 7">
                 <template #title>
                   <span>{{ record.errmsg }}</span>
                 </template>
-                <span class="status-tag status-error"><CloseCircleFilled /> 获取失败</span>
+                <span class="status-tag status-error">
+                  <CloseCircleFilled /> 获取失败
+                </span>
               </a-tooltip>
             </template>
             <template v-if="column.key === 'file_size'">
@@ -135,9 +144,7 @@
                 </div>
                 <template #overlay>
                   <a-menu>
-                    <a-menu-item
-                      :disabled="record.status == 6 || record.status == 7 || record.status == 0"
-                    >
+                    <a-menu-item :disabled="record.status == 6 || record.status == 7 || record.status == 0">
                       <div @click="handlePreview(record)">预览</div>
                     </a-menu-item>
                     <a-menu-item>
@@ -153,40 +160,17 @@
         </a-table>
       </div>
     </cu-scroll>
-    <a-modal
-      v-model:open="addFileState.open"
-      :confirm-loading="addFileState.confirmLoading"
-      :maskClosable="false"
-      title="上传文档"
-      @ok="handleSaveFiles"
-      @cancel="handleCloseFileUploadModal"
-    >
+    <a-modal v-model:open="addFileState.open" :confirm-loading="addFileState.confirmLoading" :maskClosable="false"
+      title="上传文档" @ok="handleSaveFiles" @cancel="handleCloseFileUploadModal">
       <div class="upload-file-box">
         <UploadFilesInput v-model:value="addFileState.fileList" @change="onFilesChange" />
       </div>
     </a-modal>
-    <a-modal
-      v-model:open="addUrlState.open"
-      :confirm-loading="addUrlState.confirmLoading"
-      :maskClosable="false"
-      title="添加在线数据"
-      width="746px"
-      @ok="handleSaveUrl"
-      @cancel="handleCloseUrlModal"
-    >
-      <a-form
-        class="url-add-form"
-        layout="vertical"
-        ref="urlFormRef"
-        :model="addUrlState"
-        :rules="addUrlState.rules"
-      >
+    <a-modal v-model:open="addUrlState.open" :confirm-loading="addUrlState.confirmLoading" :maskClosable="false"
+      title="添加在线数据" width="746px" @ok="handleSaveUrl" @cancel="handleCloseUrlModal">
+      <a-form class="url-add-form" layout="vertical" ref="urlFormRef" :model="addUrlState" :rules="addUrlState.rules">
         <a-form-item name="urls" label="网页链接">
-          <a-textarea
-            style="height: 120px"
-            v-model:value="addUrlState.urls"
-            placeholder="请输入网页链接,形式：一行标题一行网页链接"
-          />
+          <a-textarea style="height: 120px" v-model:value="addUrlState.urls" placeholder="请输入网页链接,形式：一行标题一行网页链接" />
         </a-form-item>
         <a-form-item name="doc_auto_renew_frequency" label="更新频率" required>
           <a-select v-model:value="addUrlState.doc_auto_renew_frequency" style="width: 100%">
@@ -215,7 +199,9 @@ import {
   EditOutlined,
   ClockCircleFilled,
   DownOutlined,
-  MoreOutlined
+  MoreOutlined,
+  DeleteOutlined,
+  SyncOutlined
 } from '@ant-design/icons-vue'
 import dayjs from 'dayjs'
 import {
@@ -237,6 +223,55 @@ const router = useRouter()
 const query = rotue.query
 
 const activeMenuKey = ref(1)
+const selectedRowKeys = ref([])
+
+const onSelectChange = (keys) => {
+  selectedRowKeys.value = keys
+}
+
+
+const handleBatchDelete = () => {
+  if (!selectedRowKeys.value.length) return
+
+  const promises = selectedRowKeys.value.map(id => delLibraryFile({ id }))
+
+  Promise.all(promises)
+    .then(() => {
+      message.success('批量删除成功')
+      selectedRowKeys.value = []
+      getData()
+    })
+    .catch(() => {
+      message.error('批量删除失败')
+    })
+}
+
+const handleBatchLearn = () => {
+  if (!selectedRowKeys.value.length) return
+
+  const selectedFiles = fileList.value.filter(item => selectedRowKeys.value.includes(item.id))
+
+  selectedFiles.forEach(record => {
+    if (record.status == '4') {
+      router.push({
+        path: '/library/document-segmentation',
+        query: { document_id: record.id }
+      })
+    } else if (record.status == '3') {
+      message.error('学习失败,不可预览')
+    } else if (record.status == '0') {
+      message.error('转换中,稍候可预览')
+    } else if (record.status == '6') {
+      message.error('获取中,不可预览')
+    } else if (record.status == '7') {
+      message.error('获取失败,不可预览')
+    } else {
+      router.push({ name: 'libraryPreview', query: { id: record.id } })
+    }
+  })
+
+  selectedRowKeys.value = []
+}
 
 const handleChangeMenu = (key) => {
   if (key === activeMenuKey.value) {
@@ -556,9 +591,11 @@ const handleSetRenewFrequency = (record) => {
   display: flex;
   flex-direction: column;
 }
+
 .doc-name-td {
   word-break: break-all;
 }
+
 .url-remark {
   color: #8c8c8c;
   margin-top: 2px;
@@ -568,12 +605,15 @@ const handleSetRenewFrequency = (record) => {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
 .padding-0 {
   padding: 0;
 }
+
 .test-menu-icon {
   color: #fff;
 }
+
 .library-name {
   height: 38px;
   line-height: 38px;
@@ -586,20 +626,24 @@ const handleSetRenewFrequency = (record) => {
   background-color: #f2f4f7;
   display: flex;
   align-items: center;
+
   .anticon-edit {
     margin-left: 8px;
     color: #8c8c8c;
     cursor: pointer;
   }
 }
+
 .between-content-box {
   display: flex;
   flex: 1;
   overflow: hidden;
+
   .left-menu-box {
     width: 232px;
     margin-right: 24px;
   }
+
   .right-content-box {
     flex: 1;
   }
@@ -615,10 +659,12 @@ const handleSetRenewFrequency = (record) => {
   border-radius: 2px;
   margin-bottom: 16px;
   cursor: pointer;
+
   &.active {
     background: #e6efff;
     border: 1px solid #2475fc;
   }
+
   .title {
     color: #242933;
     font-size: 14px;
@@ -669,6 +715,7 @@ const handleSetRenewFrequency = (record) => {
       color: #fb363f;
       background-color: #f5c6c8;
     }
+
     &.status-split {
       cursor: pointer;
       background: #faebe6;
@@ -676,12 +723,15 @@ const handleSetRenewFrequency = (record) => {
     }
   }
 }
+
 .upload-file-box {
   padding: 30px 0;
 }
+
 .ml8 {
   margin-left: 8px;
 }
+
 .url-add-form {
   margin-top: 24px;
 }
@@ -690,6 +740,7 @@ const handleSetRenewFrequency = (record) => {
   .ant-dropdown-menu {
     padding: 0;
     border-radius: 0;
+
     ::v-deep(.ant-dropdown-menu-item) {
       padding: 12px 16px;
     }
@@ -703,14 +754,17 @@ const handleSetRenewFrequency = (record) => {
     font-weight: 600;
     line-height: 22px;
   }
+
   .desc {
     color: #8c8c8c;
     font-size: 14px;
     line-height: 22px;
   }
 }
+
 .table-btn {
   cursor: pointer;
+
   &:hover {
     color: #2475fc;
   }

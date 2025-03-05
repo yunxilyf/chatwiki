@@ -1,1 +1,0 @@
-import{ao as a}from"../../index-DpY37MP6.js";const o=({file:t,category:r})=>a.post({headers:{"Content-Type":"multipart/form-data"},url:"/manage/upload",data:{file:t,category:r}}),s=({openid:t})=>a.get({url:"/chat/getWsUrl",params:{openid:t,debug:0}});export{s as g,o as u};
