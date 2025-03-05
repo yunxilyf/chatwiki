@@ -162,3 +162,4 @@ main.main()
 2025/03/05 12:48:16 ERR   12 [production_chatwiki_export_task_topic/chatwiki_export_task_channel] (9940d82e1935:4150) IO error - EOF
 2025/03/05 12:48:16 ERR   13 [production_chatwiki_export_task_topic/chatwiki_export_task_channel] (9940d82e1935:4150) IO error - EOF
 2025/03/05 12:48:16 ERR   14 [production_chatwiki_export_task_topic/chatwiki_export_task_channel] (9940d82e1935:4150) IO error - EOF
+2025/03/05 12:48:21 goose: no migrations to run. current version: 202501171205
