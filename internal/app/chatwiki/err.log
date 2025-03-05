@@ -255,3 +255,4 @@ main.main()
 2025/03/05 21:10:33 ERR    4 [production_chatwiki_convert_vector_topic/convert_vector_channel] (9940d82e1935:4150) IO error - EOF
 2025/03/05 21:10:33 ERR    5 [production_chatwiki_convert_vector_topic/convert_vector_channel] (9940d82e1935:4150) IO error - EOF
 2025/03/05 21:10:33 ERR    2 [production_chatwiki_convert_html_topic/convert_html_channel] (9940d82e1935:4150) IO error - EOF
+2025/03/05 21:10:38 goose: no migrations to run. current version: 202501171205
