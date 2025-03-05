@@ -151,3 +151,14 @@ main.main()
 2025/03/05 08:59:58 goose: no migrations to run. current version: 202501171205
 2025/03/05 09:12:52 goose: no migrations to run. current version: 202501171205
 2025/03/05 09:15:17 goose: no migrations to run. current version: 202501171205
+2025/03/05 11:52:12 goose: no migrations to run. current version: 202501171205
+2025/03/05 12:48:16 ERR    4 [production_chatwiki_convert_vector_topic/convert_vector_channel] (9940d82e1935:4150) IO error - EOF
+2025/03/05 12:48:16 ERR    2 [production_chatwiki_convert_html_topic/convert_html_channel] (9940d82e1935:4150) IO error - EOF
+2025/03/05 12:48:16 ERR    5 [production_chatwiki_convert_vector_topic/convert_vector_channel] (9940d82e1935:4150) IO error - EOF
+2025/03/05 12:48:16 ERR    7 [production_chatwiki_crawl_article_topic/chatwiki_crawl_article_channel] (9940d82e1935:4150) IO error - EOF
+2025/03/05 12:48:16 ERR   10 [production_chatwiki_export_task_topic/chatwiki_export_task_channel] (9940d82e1935:4150) IO error - EOF
+2025/03/05 12:48:16 ERR    8 [production_chatwiki_crawl_article_topic/chatwiki_crawl_article_channel] (9940d82e1935:4150) IO error - EOF
+2025/03/05 12:48:16 ERR   11 [production_chatwiki_export_task_topic/chatwiki_export_task_channel] (9940d82e1935:4150) IO error - EOF
+2025/03/05 12:48:16 ERR   12 [production_chatwiki_export_task_topic/chatwiki_export_task_channel] (9940d82e1935:4150) IO error - EOF
+2025/03/05 12:48:16 ERR   13 [production_chatwiki_export_task_topic/chatwiki_export_task_channel] (9940d82e1935:4150) IO error - EOF
+2025/03/05 12:48:16 ERR   14 [production_chatwiki_export_task_topic/chatwiki_export_task_channel] (9940d82e1935:4150) IO error - EOF

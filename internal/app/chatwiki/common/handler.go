@@ -4,10 +4,11 @@ package common
 
 import (
 	"errors"
+	"strings"
+
 	"github.com/spf13/cast"
 	"github.com/zhimaAi/go_tools/tool"
 	"github.com/zhimaAi/llm_adaptor/adaptor"
-	"strings"
 
 	"github.com/zhimaAi/go_tools/msql"
 )
@@ -271,6 +272,23 @@ func GetMinimaxHandle(config msql.Params, useModel string) (*ModelCallHandler, e
 			Corp:   `minimax`,
 			APIKey: config[`api_key`],
 			Model:  useModel,
+		},
+		config: config,
+	}
+	return handler, nil
+}
+
+func GetXinferenceHandle(config msql.Params, useModel string) (*ModelCallHandler, error) {
+	if useModel == "默认" && cast.ToString(config["deployment_name"]) != "" {
+		useModel = cast.ToString(config["deployment_name"])
+	}
+	handler := &ModelCallHandler{
+		Meta: adaptor.Meta{
+			Corp:       `xinference`,
+			EndPoint:   config[`api_endpoint`],
+			APIVersion: config[`api_version`],
+			APIKey:     config[`api_key`],
+			Model:      useModel,
 		},
 		config: config,
 	}
