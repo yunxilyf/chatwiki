@@ -147,7 +147,7 @@
     </div>
     <div class="chat-page-footer">
       <MessageInput ref="messageInputRef" @send="onSendMesage" :loading="sendLock" />
-      <div class="technical-support-text">由 ChatWiki 提供软件支持</div>
+      <!-- <div class="technical-support-text">由 ChatWiki 提供软件支持</div> -->
     </div>
   </div>
 </template>

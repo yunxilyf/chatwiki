@@ -1,0 +1,1 @@
+/usr/lib/postgresql/16/bin/postgres "-c" "zhparser.multi_short=t" "-c" "zhparser.punctuation_ignore=t" "-c" "zhparser.dict_in_memory=t"

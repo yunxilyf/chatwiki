@@ -1,20 +1,18 @@
 <template>
-  <div class="upload-input" :class="{ disabled: fileList.length >= props.maxCount }">
-    <a-upload-dragger :file-list="fileList" name="file" :multiple="true" :max-count="props.maxCount" :accept="getAccept"
+  <div class="upload-input">
+    <a-upload-dragger :file-list="fileList" name="file" :multiple="true" :accept="getAccept"
       :beforeUpload="beforeUpload" @remove="handleRemove" class="ant-upload-drag">
       <div class="ant-upload-drag-icon">
         <inbox-outlined></inbox-outlined>
       </div>
       <div class="ant-upload-text">点击或将文件拖拽到这里上传</div>
       <div class="ant-upload-hint">
-        <p>一次只能上传一个文档，单个文件不超过100M</p>
+        <p>支持多个文档同时上传，单个文件不超过100M</p>
         <p>
           <span>支持文件类型：</span><span class="ant-upload-hint-ext" v-for="ext in fileTypes" :key="ext">.{{ ext }}</span>
         </p>
       </div>
     </a-upload-dragger>
-
-    <div class="disabled-mask" @click="showMaxCountErrorTip"></div>
   </div>
 </template>
 
@@ -29,10 +27,6 @@ const props = defineProps({
   value: {
     type: Array,
     default: () => []
-  },
-  maxCount: {
-    type: Number,
-    default: 1
   }
 })
 
@@ -62,10 +56,6 @@ const showMaxCountErrorTip = () => {
 }
 
 const onChange = () => {
-  if (fileList.value.length > props.maxCount) {
-    message.error('一次最多上传' + props.maxCount + '个文件')
-  }
-
   let files = [...fileList.value]
 
   emit('change', files)
@@ -106,10 +96,6 @@ const beforeUpload = (file) => {
 
   fileList.value = [...(fileList.value || []), file]
 
-  if (fileList.value.length > props.maxCount) {
-    fileList.value = fileList.value.splice(0, props.maxCount)
-  }
-
   if (timer) {
     clearTimeout(timer)
   }
@@ -149,26 +135,6 @@ const beforeUpload = (file) => {
 .upload-input {
   .ant-upload-hint-ext {
     padding-right: 4px;
-  }
-
-  .disabled-mask {
-    display: none;
-    cursor: pointer;
-    height: 176px;
-  }
-
-  &.disabled {
-    position: relative;
-
-    .disabled-mask {
-      display: block;
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: 0;
-      bottom: 0;
-      opacity: 0;
-    }
   }
 }
 </style>

@@ -11,8 +11,8 @@
           <LayoutLogo />
         </div>
         <div class="header-item" style="width: 50px;" @click="toHome">{{ t('views.user.login.home') }}</div>
-        <div class="header-item">{{ t('views.user.login.helpDocument') }}</div>
-        <div class="header-item">{{ t('views.user.login.githubUrl') }}</div>
+        <!-- <div class="header-item">{{ t('views.user.login.helpDocument') }}</div>
+        <div class="header-item">{{ t('views.user.login.githubUrl') }}</div> -->
       </div>
       <div class="header-right">
         <LocaleDropdown />
@@ -135,10 +135,10 @@
       <div class="layout-footer">
         <div class="copyright-text-box">
           <div class="copyright-text-info">Powered by</div>
-          <div class="copyright-text" @click="toChatWiki">  ChatWiki</div>
+          <!-- <div class="copyright-text" @click="toChatWiki">  ChatWiki</div> -->
         </div>
         <div class="footer-line"></div>
-        <div class="copyright-text" @click="toXiaokefu">{{ t('views.user.login.copyrightTextTwo') }}</div>
+        <!-- <div class="copyright-text" @click="toXiaokefu">{{ t('views.user.login.copyrightTextTwo') }}</div> -->
       </div>
     </div>
   </div>

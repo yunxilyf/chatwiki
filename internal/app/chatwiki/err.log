@@ -1,0 +1,153 @@
+panic: Postgres Register Error
+
+goroutine 1 [running]:
+chatwiki/internal/app/chatwiki/initialize.initPostgres()
+	D:/golang/src/chatwiki/internal/app/chatwiki/initialize/msql.go:20 +0x2f8
+chatwiki/internal/app/chatwiki/initialize.Initialize()
+	D:/golang/src/chatwiki/internal/app/chatwiki/initialize/init.go:35 +0x175
+chatwiki/internal/app/chatwiki.Run()
+	D:/golang/src/chatwiki/internal/app/chatwiki/program.go:32 +0x17
+main.main()
+	D:/golang/src/chatwiki/cmd/chatwiki/main.go:17 +0x51
+panic: Postgres Register Error
+
+goroutine 1 [running]:
+chatwiki/internal/app/chatwiki/initialize.initPostgres()
+	D:/golang/src/chatwiki/internal/app/chatwiki/initialize/msql.go:20 +0x2f8
+chatwiki/internal/app/chatwiki/initialize.Initialize()
+	D:/golang/src/chatwiki/internal/app/chatwiki/initialize/init.go:35 +0x175
+chatwiki/internal/app/chatwiki.Run()
+	D:/golang/src/chatwiki/internal/app/chatwiki/program.go:32 +0x17
+main.main()
+	D:/golang/src/chatwiki/cmd/chatwiki/main.go:17 +0x51
+panic: Postgres Register Error
+
+goroutine 1 [running]:
+chatwiki/internal/app/chatwiki/initialize.initPostgres()
+	D:/golang/src/chatwiki/internal/app/chatwiki/initialize/msql.go:20 +0x2f8
+chatwiki/internal/app/chatwiki/initialize.Initialize()
+	D:/golang/src/chatwiki/internal/app/chatwiki/initialize/init.go:35 +0x175
+chatwiki/internal/app/chatwiki.Run()
+	D:/golang/src/chatwiki/internal/app/chatwiki/program.go:32 +0x17
+main.main()
+	D:/golang/src/chatwiki/cmd/chatwiki/main.go:17 +0x51
+panic: Postgres Register Error
+
+goroutine 1 [running]:
+chatwiki/internal/app/chatwiki/initialize.initPostgres()
+	D:/golang/src/chatwiki/internal/app/chatwiki/initialize/msql.go:20 +0x2f8
+chatwiki/internal/app/chatwiki/initialize.Initialize()
+	D:/golang/src/chatwiki/internal/app/chatwiki/initialize/init.go:35 +0x175
+chatwiki/internal/app/chatwiki.Run()
+	D:/golang/src/chatwiki/internal/app/chatwiki/program.go:32 +0x17
+main.main()
+	D:/golang/src/chatwiki/cmd/chatwiki/main.go:17 +0x51
+2025/03/04 20:45:57 OK   202406061700_init_db.sql (175.34ms)
+2025/03/04 20:45:57 OK   202406061720_create_chat_ai_library_table.sql (98.28ms)
+2025/03/04 20:45:58 OK   202406061722_create_chat_ai_library_file.sql (484.15ms)
+2025/03/04 20:45:58 OK   202406061728_create_chat_ai_robot_table.sql (132.69ms)
+2025/03/04 20:45:58 OK   202406061734_create_chat_ai_customer_table.sql (114.29ms)
+2025/03/04 20:45:58 OK   202406061736_create_chat_ai_message_table.sql (149.9ms)
+2025/03/04 20:45:58 OK   202406061737_create_chat_ai_answer_source_table.sql (116.59ms)
+2025/03/04 20:45:58 OK   202406061738_create_chat_ai_dialogue.sql (99.89ms)
+2025/03/04 20:45:58 OK   202406061739_create_chat_ai_session_table.sql (149.99ms)
+2025/03/04 20:45:58 OK   202406061741_create_user_table.sql (76.19ms)
+2025/03/04 20:45:59 OK   202406061744_create_chat_ai_model_config_table.sql (99.27ms)
+2025/03/04 20:45:59 OK   202406061746_create_chat_ai_library_file_data_table.sql (125.63ms)
+2025/03/04 20:45:59 OK   202406061749_create_chat_ai_library_file_data_index_table.sql (260.95ms)
+2025/03/04 20:45:59 OK   202406061754_create_role_table.sql (80.36ms)
+2025/03/04 20:45:59 OK   202406061755_create_menu_table.sql (69.72ms)
+2025/03/04 20:45:59 OK   202406061757_create_company_table.sql (50.2ms)
+2025/03/04 20:45:59 OK   202406061931_create_casbin_rule_table.sql (24.55ms)
+2025/03/04 20:45:59 OK   202406071038_create_role_table_mark.sql (13.37ms)
+2025/03/04 20:45:59 OK   202406071641_add_column_for_robot_table.sql (19.94ms)
+2025/03/04 20:45:59 OK   202406121615_alter_chat_ai_answer_source_table.sql (13.37ms)
+2025/03/04 20:45:59 OK   202406181047_alter_chat_ai_library_file_table.sql (20.05ms)
+2025/03/04 20:45:59 OK   202406191417_add_column_for_robot_table.sql (13.25ms)
+2025/03/04 20:45:59 OK   202406191436_add_column_for_robot_table.sql (19.77ms)
+2025/03/04 20:45:59 OK   202406191606_insert_menu_and_rule_data.sql (13.56ms)
+2025/03/04 20:45:59 OK   202406191751_alter_user_table.sql (19.69ms)
+2025/03/04 20:45:59 OK   202406201010_alter_table_library_file_index.sql (28.23ms)
+2025/03/04 20:45:59 OK   202406211659_drop_content_index.sql (14.1ms)
+2025/03/04 20:45:59 OK   202406241100_alter_table_robot.sql (16.19ms)
+2025/03/04 20:45:59 OK   202406241645_alter_chat_ai_library_file_comment.sql (13.48ms)
+2025/03/04 20:45:59 OK   202406241818_add_column_for_chat_ai_library_file.sql (19.66ms)
+2025/03/04 20:45:59 OK   202406251600_create_fast_command_table.sql (74.95ms)
+2025/03/04 20:45:59 OK   202406261100_alter_chat_ai_message.sql (13.91ms)
+2025/03/04 20:45:59 OK   202406271140_add_enable_common_question_for_robot_table.sql (27.74ms)
+2025/03/04 20:46:00 OK   202406271614_alter_chat_ai_robot_table.sql (13.69ms)
+2025/03/04 20:46:00 OK   202407011621_add_extract_image_field.sql (36.85ms)
+2025/03/04 20:46:00 OK   202407041610_add_column_for_answer_source.sql (24.22ms)
+2025/03/04 20:46:00 OK   202407051006_modify_chat_ai_model_config_table.sql (120.86ms)
+2025/03/04 20:46:00 OK   202407051606_create_llm_token_daily_stats_table.sql (62.53ms)
+2025/03/04 20:46:00 OK   202407051706_create_llm_request_logs_table.sql (121.83ms)
+2025/03/04 20:46:00 OK   202407092318_add_column_for_model_config_table.sql (20.4ms)
+2025/03/04 20:46:00 OK   202407101006_modify_chat_ai_wechat_app_table.sql (21.01ms)
+2025/03/04 20:46:00 OK   202407111600_alter_table_robot.sql (24.47ms)
+2025/03/04 20:46:00 OK   202407121518_add_html_url_for_library_file_table.sql (21.07ms)
+2025/03/04 20:46:00 OK   202407121606_modify_chat_ai_robot_table.sql (41.75ms)
+2025/03/04 20:46:00 OK   202407151004_llm_request_daily_stats_table.sql (70.9ms)
+2025/03/04 20:46:00 OK   202407171108_alter_chat_ai_session_table.sql (20.72ms)
+2025/03/04 20:46:00 OK   202407171720_create_chat_ai_robot_apikey.sql (112.58ms)
+2025/03/04 20:46:00 OK   202407180930_create_message_feedback_table.sql (162.39ms)
+2025/03/04 20:46:00 OK   202407191547_add_column_for_chat_ai_messages_table.sql (20.12ms)
+2025/03/04 20:46:00 OK   202407231033_add_column_for_robot_table.sql (13.12ms)
+2025/03/04 20:46:00 OK   202407251530_create_form_table.sql (66.65ms)
+2025/03/04 20:46:01 OK   202407261409_create_form_field_table.sql (110.63ms)
+2025/03/04 20:46:01 OK   202407261412_create_form_entry_table.sql (55.26ms)
+2025/03/04 20:46:01 OK   202407261414_create_form_field_value_table.sql (66.78ms)
+2025/03/04 20:46:01 OK   202407261621_create_form_filter_condition_table.sql (83.35ms)
+2025/03/04 20:46:01 OK   202407261640_create_form_filter_table.sql (61.33ms)
+2025/03/04 20:46:01 OK   202407291444_alter_table_chat_ai_robot.sql (13.54ms)
+2025/03/04 20:46:01 OK   202407301057_add_column_for_robot_table.sql (19.74ms)
+2025/03/04 20:46:01 OK   202408011652_add_column_for_messages_table.sql (13.41ms)
+2025/03/04 20:46:01 OK   202408221517_alter_model_config_table.sql (19.82ms)
+2025/03/04 20:46:01 OK   202408261700_add_columns_for_users_table.sql (13.56ms)
+2025/03/04 20:46:01 OK   202408281733_delete_client_user_from_role_table.sql (19.7ms)
+2025/03/04 20:46:01 OK   202409121548_delete_client_user_from_role_table.sql (13.55ms)
+2025/03/04 20:46:01 OK   202501071056_create_chat_ai_export_task_table.sql (91.72ms)
+2025/03/04 20:46:01 OK   202501171205_add_column_for_model_config_table.sql (19.67ms)
+2025/03/04 20:46:01 goose: successfully migrated database to version: 202501171205
+2025/03/04 21:02:28 goose: no migrations to run. current version: 202501171205
+2025/03/04 21:04:53 goose: no migrations to run. current version: 202501171205
+2025/03/04 21:07:50 goose: no migrations to run. current version: 202501171205
+2025/03/04 21:10:10 ERR    4 [production_chatwiki_convert_vector_topic/convert_vector_channel] (9940d82e1935:4150) IO error - EOF
+2025/03/04 21:10:10 ERR   12 [production_chatwiki_export_task_topic/chatwiki_export_task_channel] (9940d82e1935:4150) IO error - EOF
+2025/03/04 21:10:10 ERR   13 [production_chatwiki_export_task_topic/chatwiki_export_task_channel] (9940d82e1935:4150) IO error - EOF
+2025/03/04 21:10:10 ERR    2 [production_chatwiki_convert_html_topic/convert_html_channel] (9940d82e1935:4150) IO error - EOF
+2025/03/04 21:10:10 ERR    5 [production_chatwiki_convert_vector_topic/convert_vector_channel] (9940d82e1935:4150) IO error - EOF
+2025/03/04 21:10:10 ERR   14 [production_chatwiki_export_task_topic/chatwiki_export_task_channel] (9940d82e1935:4150) IO error - EOF
+2025/03/04 21:10:10 ERR   11 [production_chatwiki_export_task_topic/chatwiki_export_task_channel] (9940d82e1935:4150) IO error - EOF
+2025/03/04 21:10:10 ERR    7 [production_chatwiki_crawl_article_topic/chatwiki_crawl_article_channel] (9940d82e1935:4150) IO error - EOF
+2025/03/04 21:10:10 ERR    8 [production_chatwiki_crawl_article_topic/chatwiki_crawl_article_channel] (9940d82e1935:4150) IO error - EOF
+2025/03/04 21:10:10 ERR   10 [production_chatwiki_export_task_topic/chatwiki_export_task_channel] (9940d82e1935:4150) IO error - EOF
+2025/03/04 21:10:15 goose: no migrations to run. current version: 202501171205
+2025/03/04 21:28:34 ERR    8 [production_chatwiki_crawl_article_topic/chatwiki_crawl_article_channel] (9940d82e1935:4150) IO error - EOF
+2025/03/04 21:28:34 ERR   10 [production_chatwiki_export_task_topic/chatwiki_export_task_channel] (9940d82e1935:4150) IO error - EOF
+2025/03/04 21:28:34 ERR    2 [production_chatwiki_convert_html_topic/convert_html_channel] (9940d82e1935:4150) IO error - EOF
+2025/03/04 21:28:34 ERR    7 [production_chatwiki_crawl_article_topic/chatwiki_crawl_article_channel] (9940d82e1935:4150) IO error - EOF
+2025/03/04 21:28:34 ERR    5 [production_chatwiki_convert_vector_topic/convert_vector_channel] (9940d82e1935:4150) IO error - EOF
+2025/03/04 21:28:34 ERR   13 [production_chatwiki_export_task_topic/chatwiki_export_task_channel] (9940d82e1935:4150) IO error - EOF
+2025/03/04 21:28:34 ERR   14 [production_chatwiki_export_task_topic/chatwiki_export_task_channel] (9940d82e1935:4150) IO error - EOF
+2025/03/04 21:28:34 ERR    4 [production_chatwiki_convert_vector_topic/convert_vector_channel] (9940d82e1935:4150) IO error - EOF
+2025/03/04 21:28:34 ERR   11 [production_chatwiki_export_task_topic/chatwiki_export_task_channel] (9940d82e1935:4150) IO error - EOF
+2025/03/04 21:28:34 ERR   12 [production_chatwiki_export_task_topic/chatwiki_export_task_channel] (9940d82e1935:4150) IO error - EOF
+2025/03/04 21:28:39 goose: no migrations to run. current version: 202501171205
+2025/03/05 08:35:58 goose: no migrations to run. current version: 202501171205
+2025/03/05 08:37:01 goose: no migrations to run. current version: 202501171205
+2025/03/05 08:39:17 goose: no migrations to run. current version: 202501171205
+2025/03/05 08:46:48 goose: no migrations to run. current version: 202501171205
+2025/03/05 08:47:20 goose: no migrations to run. current version: 202501171205
+2025/03/05 08:59:54 ERR   14 [production_chatwiki_export_task_topic/chatwiki_export_task_channel] (9940d82e1935:4150) IO error - EOF
+2025/03/05 08:59:54 ERR    4 [production_chatwiki_convert_vector_topic/convert_vector_channel] (9940d82e1935:4150) IO error - EOF
+2025/03/05 08:59:54 ERR    2 [production_chatwiki_convert_html_topic/convert_html_channel] (9940d82e1935:4150) IO error - EOF
+2025/03/05 08:59:54 ERR    8 [production_chatwiki_crawl_article_topic/chatwiki_crawl_article_channel] (9940d82e1935:4150) IO error - EOF
+2025/03/05 08:59:54 ERR   10 [production_chatwiki_export_task_topic/chatwiki_export_task_channel] (9940d82e1935:4150) IO error - EOF
+2025/03/05 08:59:54 ERR   11 [production_chatwiki_export_task_topic/chatwiki_export_task_channel] (9940d82e1935:4150) IO error - EOF
+2025/03/05 08:59:54 ERR   12 [production_chatwiki_export_task_topic/chatwiki_export_task_channel] (9940d82e1935:4150) IO error - EOF
+2025/03/05 08:59:54 ERR    7 [production_chatwiki_crawl_article_topic/chatwiki_crawl_article_channel] (9940d82e1935:4150) IO error - EOF
+2025/03/05 08:59:54 ERR   13 [production_chatwiki_export_task_topic/chatwiki_export_task_channel] (9940d82e1935:4150) IO error - EOF
+2025/03/05 08:59:54 ERR    5 [production_chatwiki_convert_vector_topic/convert_vector_channel] (9940d82e1935:4150) IO error - EOF
+2025/03/05 08:59:58 goose: no migrations to run. current version: 202501171205
+2025/03/05 09:12:52 goose: no migrations to run. current version: 202501171205
+2025/03/05 09:15:17 goose: no migrations to run. current version: 202501171205
